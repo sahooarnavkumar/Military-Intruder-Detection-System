@@ -8,7 +8,7 @@ from cv2 import VideoWriter
 from cv2 import VideoWriter_fourcc
 from cvzone import FPS
 
-path = 'ImageAttendance'
+path = 'Images'
 images = []
 classNames = []
 myList = os.listdir(path)
