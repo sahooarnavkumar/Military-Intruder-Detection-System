@@ -8,7 +8,7 @@ from cv2 import VideoWriter
 from cv2 import VideoWriter_fourcc
 from cvzone import FPS
 
-path = 'Images'
+path = 'Database'
 images = []
 classNames = []
 myList = os.listdir(path)
@@ -37,7 +37,7 @@ print('Encoding Complete')
 frameWidth = 640
 frameHeight = 480
 cap = cv2.VideoCapture(0)
-BG = cv2.imread("Background.png")
+BG = cv2.imread("Background.JPG")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
@@ -86,6 +86,8 @@ while True:
 
     fps, img = fpsReader.update(img)
     BG[140:140 + frameHeight, 474:474 + frameWidth] = img
+
+
 
     if success:
         cv2.imshow("Portal", BG)
