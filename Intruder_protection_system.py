@@ -69,8 +69,12 @@ while True:
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
             cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+            cv2.rectangle(BG, (200, 555), (444, 618), (255, 255, 255), cv2.FILLED)
+            cv2.putText(BG, "ALL GOOD", (230, 595), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
+            BG[140:140 + frameHeight, 474:474 + frameWidth] = img
         else:
-            cv2.putText(BG, "DANGER !!!", (492, 100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 3)
+            cv2.rectangle(BG, (200, 555), (444, 618), (255, 255, 255), cv2.FILLED)
+            cv2.putText(BG, "DANGER !!!", (220, 587), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
             winsound.Beep(2000, 1500)
             # print(name)
             y1, x2, y2, x1 = faceLoc
@@ -78,9 +82,10 @@ while True:
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
             cv2.putText(img, "Unknown", (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+            BG[140:140 + frameHeight, 474:474 + frameWidth] = img
 
     fps, img = fpsReader.update(img)
-    BG[207:207 + frameHeight, 567:567 + frameWidth] = img
+    BG[140:140 + frameHeight, 474:474 + frameWidth] = img
 
     if success:
         cv2.imshow("Portal", BG)
